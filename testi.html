@@ -1,1 +1,530 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meet Your AI Twin</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#2EB5A5", secondary: "#57B5E7" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Inter', sans-serif;
+          background-color: #f0f9f8;
+      }
+      .hero-gradient {
+          background: linear-gradient(135deg, rgba(46, 181, 165, 0.9), rgba(87, 181, 231, 0.8));
+      }
+      .custom-input:focus {
+          outline: none;
+          border-color: #2EB5A5;
+      }
+      .custom-switch {
+          position: relative;
+          display: inline-block;
+          width: 50px;
+          height: 24px;
+      }
+      .custom-switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+      .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+          border-radius: 24px;
+      }
+      .slider:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 3px;
+          bottom: 3px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+      }
+      input:checked + .slider {
+          background-color: #2EB5A5;
+      }
+      input:checked + .slider:before {
+          transform: translateX(26px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <a href="#" class="text-2xl font-['Pacifico'] text-primary">prifina</a>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#" class="text-gray-700 hover:text-primary font-medium"
+              >Features</a
+            >
+            <a href="#" class="text-gray-700 hover:text-primary font-medium"
+              >About</a
+            >
+            <a href="#" class="text-gray-700 hover:text-primary font-medium"
+              >Pricing</a
+            >
+            <a href="#" class="text-gray-700 hover:text-primary font-medium"
+              >Contact</a
+            >
+            <a
+              href="#"
+              class="bg-primary text-white px-5 py-2 !rounded-button font-medium hover:bg-opacity-90 whitespace-nowrap"
+              >Get Started</a
+            >
+          </div>
+          <div class="md:hidden flex items-center">
+            <button class="text-gray-700">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-menu-line ri-lg"></i>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="w-full relative overflow-hidden">
+      <div
+        class="absolute inset-0"
+        style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20digital%20twin%20technology%20concept%20with%20abstract%20neural%20network%20connections%2C%20soft%20gradient%20teal%20and%20blue%20background%20with%20subtle%20tech%20elements%2C%20modern%20minimalist%20style%2C%20clean%20design%2C%20no%20people%20or%20faces&width=1280&height=600&seq=1&orientation=landscape'); background-size: cover; background-position: center; opacity: 0.9;"
+      ></div>
+      <div class="hero-gradient absolute inset-0 opacity-80"></div>
+      <div
+        class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 w-full"
+      >
+        <div class="max-w-2xl">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            Prepare to Meet Your AI Twin - a Private, Personalized AI That's All About YOU
+          </h1>
+          <p class="text-xl text-white mb-8">
+            The age of "one-size-fits-all" AI is ending. Get ready for something radically personal.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#"
+              class="bg-white text-primary px-6 py-3 !rounded-button font-medium hover:bg-gray-50 whitespace-nowrap text-center"
+              >Start Your Journey</a
+            >
+            <a
+              href="#"
+              class="bg-transparent border-2 border-white text-white px-6 py-3 !rounded-button font-medium hover:bg-white hover:bg-opacity-10 whitespace-nowrap text-center"
+              >Learn More</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Challenge Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">The Problem</h2>
+          <p class="text-lg text-gray-600">
+            Most AI tools feel generic, keep your data in their own clouds, and don't really know you personally. Your memories, ideas, and expertise are scattered across apps, notebooks, and dusty hard drives. Privacy? Usually an after-thought.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">
+            OUR MISSION
+          </h2>
+          <p class="text-lg text-gray-600 text-center">
+            We're building a way for everyday people to own a private, human-scale AI. One that learns from you life and works exclusively for your benefit.
+          </p>
+          <p class="text-lg text-gray-600 text-center mt-4">
+            Think of it as a digital counterpart that helps you:
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg p-6 shadow-sm">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4"
+            >
+              <i class="ri-shield-keyhole-line text-primary ri-lg"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              remember the things that matter
+            </h3>
+            <p class="text-gray-600">
+              Your data never leaves your personal environment. All learning and
+              processing happens locally, ensuring maximum privacy and security.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-sm">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4"
+            >
+              <i class="ri-brain-line text-primary ri-lg"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              share knowledge on your terms
+            </h3>
+            <p class="text-gray-600">
+              Your AI twin evolves as you do, constantly learning from your
+              interactions and adapting to your changing preferences and needs.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-sm">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4"
+            >
+              <i class="ri-user-settings-line text-primary ri-lg"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              find insights anywhere, instantly
+            </h3>
+            <p class="text-gray-600">
+              You control what your AI learns and how it represents you, with
+              intuitive tools to fine-tune every aspect of your digital twin.
+            </p>
+          </div>
+        </div>
+        <div class="text-center mt-8 text-gray-600">
+          (We'll reveal exactly how in the Kickstarter launch—stay tuned!)
+        </div>
+      </div>
+    </section>
+
+    <!-- Why It Matters Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">WHY IT MATTERS</h2>
+        </div>
+        <div class="grid md:grid-cols-1 gap-8 max-w-3xl mx-auto">
+          <div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              True data ownership
+            </h3>
+            <p class="text-gray-600">
+              you decide what's stored and who sees it
+            </p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              Personal context
+            </h3>
+            <p class="text-gray-600">
+              all your memories shaped by your real experiences
+            </p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              Freedom to explore
+            </h3>
+            <p class="text-gray-600">
+              just create, play, and create without handling everything to Big AI
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coming to Kickstarter Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">COMING TO KICKSTARTER</h2>
+          <p class="text-lg text-gray-600">
+            At launch we'll unveil a handful of ways to:
+          </p>
+          <ul class="text-lg text-gray-600 mt-4 space-y-2">
+            <li>take your digital self with when you choose</li>
+            <li>have a private data-fueled memory vault</li>
+            <li>summon your AI with a tap—wherever life happens</li>
+          </ul>
+          <p class="text-lg text-gray-600 mt-6">
+            Early-bird backers will unlock limited-edition perks and lifetime savings. Details drop on launch day—subscribe down below.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Fully Private</h3>
+            <p class="text-gray-600">
+              Your information and data remain privately stored behind a secure, end-to-end encrypted connection. You hold all the encryption keys and maintain full control over your personal data. No one else—not us, or any other party—can access your private data, message logs, or data profiles unless you explicitly authorize them. It stays truly yours as long as you store your own memories.
+            </p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Your Ownership</h3>
+            <p class="text-gray-600">
+              iPrifina processes you AI in five containerized core services that learn to map thoughts to actions in your own private memory vault - think Google neurons growing new pathways. Your AI only takes pages into its carefully planned infrastructure and learns from them just like any other brain-like apps, then returns your data base raw, allowing you to try out new datasets just like you'd normally do.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- First Look Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            FIRST LOOK - STAY IN THE LOOP
+          </h2>
+          <p class="text-lg text-gray-600 mb-8">
+            Ready for you own AI genius? Subscribe below to get early notifications and an invite to our launch event - no spam, just updates. You'll receive:
+          </p>
+          <ul class="text-lg text-gray-600 mb-8 space-y-2">
+            <li>Exclusive sneak previews of our Kickstarter launch</li>
+            <li>Access to limited edition AI-twins perks</li>
+            <li>Special perks for our community</li>
+          </ul>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">
+            Get Alerts on the AI Twin Kickstarter
+          </h3>
+          <div class="max-w-md mx-auto">
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                class="custom-input flex-grow px-4 py-3 !rounded-button border border-gray-300 text-gray-700 bg-white"
+              />
+              <button
+                class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 whitespace-nowrap"
+              >
+                Subscribe
+              </button>
+            </div>
+            <div class="mt-4 flex items-center justify-center gap-2">
+              <label class="custom-switch">
+                <input type="checkbox" checked />
+                <span class="slider"></span>
+              </label>
+              <span class="text-sm text-gray-600"
+                >I agree to receive occasional updates and special offers</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+          <div class="col-span-2">
+            <a
+              href="#"
+              class="text-2xl font-['Pacifico'] text-primary mb-4 inline-block"
+              >prifina</a
+            >
+            <p class="text-gray-600 mb-4">
+              Creating the future of personalized AI technology that adapts to
+              humans, not the other way around.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white"
+              >
+                <i class="ri-twitter-x-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white"
+              >
+                <i class="ri-linkedin-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Product</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary">Pricing</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Case Studies</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary">Reviews</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary">Updates</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary">Careers</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary">Press</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Partners</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Resources</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary">Blog</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Community</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Developers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary">Support</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-200 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-600 text-sm mb-4 md:mb-0">
+              © 2024 Prifina Inc. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="text-gray-600 hover:text-primary text-sm"
+                >Privacy Policy</a
+              >
+              <a href="#" class="text-gray-600 hover:text-primary text-sm"
+                >Terms of Service</a
+              >
+              <a href="#" class="text-gray-600 hover:text-primary text-sm"
+                >Cookie Policy</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        const menuButton = document.querySelector("button.text-gray-700");
+        if (menuButton) {
+          menuButton.addEventListener("click", function () {
+            // Add mobile menu functionality here
+            alert("Mobile menu clicked");
+          });
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Newsletter subscription
+        const subscribeButton = document.querySelector(".custom-input + button");
+        if (subscribeButton) {
+          subscribeButton.addEventListener("click", function () {
+            const emailInput = document.querySelector(".custom-input");
+            if (emailInput.value) {
+              alert("Thank you for subscribing!");
+              emailInput.value = "";
+            } else {
+              alert("Please enter your email address");
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
