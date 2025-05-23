@@ -1,569 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prifina - Your Personal AI Twin</title>
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#00BFAE',secondary:'#003366'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-    <style>
-        :where([class^="ri-"])::before { content: "\f3c2"; }
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #111827;
-        }
-        .body-text {
-            font-family: 'Roboto', sans-serif;
-        }
-        .hero-gradient {
-            background: linear-gradient(to bottom, #e0f2ff, #ffffff);
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #00BFAE;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        input:focus {
-            outline: none;
-            border-color: #00BFAE;
-        }
-        input[type="number"]::-webkit-inner-spin-button,
-        input[type="number"]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prifina - Your Personal AI Twin</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#00BFAE',secondary:'#003366'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+color: #111827;
+}
+.body-text {
+font-family: 'Roboto', sans-serif;
+}
+.hero-gradient {
+background: linear-gradient(to bottom, #e0f2ff, #ffffff);
+}
+.nav-link {
+position: relative;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+bottom: -4px;
+left: 0;
+width: 0;
+height: 2px;
+background-color: #00BFAE;
+transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+width: 100%;
+}
+.card-hover {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+input:focus {
+outline: none;
+border-color: #00BFAE;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+html {
+scroll-behavior: smooth;
+}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-95 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="nav-link text-sm font-medium text-gray-700 hover:text-primary">Features</a>
-                    <a href="#use-cases" class="nav-link text-sm font-medium text-gray-700 hover:text-primary">Use Cases</a>
-                    <a href="#testimonials" class="nav-link text-sm font-medium text-gray-700 hover:text-primary">Testimonials</a>
-                    <a href="#about" class="nav-link text-sm font-medium text-gray-700 hover:text-primary">About</a>
-                    <a href="#pricing" class="nav-link text-sm font-medium text-gray-700 hover:text-primary">Pricing</a>
-                </div>
-                
-                <div class="flex items-center space-x-4">
-                    <a href="#" class="bg-primary text-white px-4 py-2 rounded-button text-sm font-semibold hover:bg-opacity-90 transition-all whitespace-nowrap">Get Started</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-gradient pt-32 pb-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24 w-full">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Your Personal AI Twin for Data Ownership</h1>
-                    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-lg">Take control of your digital life with Prifina's revolutionary personal AI that keeps your data private while working for you.</p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#" class="bg-primary text-white px-6 py-3 rounded-button text-base font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 flex items-center justify-center whitespace-nowrap">
-                            Get Started Free
-                            <div class="w-5 h-5 ml-2 flex items-center justify-center">
-                                <i class="ri-arrow-right-line"></i>
-                            </div>
-                        </a>
-                        <a href="#how-it-works" class="bg-white text-gray-800 border border-gray-300 px-6 py-3 rounded-button text-base font-semibold hover:bg-gray-50 transition-all flex items-center justify-center whitespace-nowrap">
-                            Learn How It Works
-                        </a>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <img src="https://readdy.ai/api/search-image?query=A%20modern%2C%20sleek%20digital%20interface%20showing%20a%20personal%20AI%20assistant%20with%20data%20visualization%20elements.%20The%20image%20should%20have%20a%20clean%2C%20minimalist%20design%20with%20teal%20and%20dark%20blue%20accents.%20The%20left%20side%20should%20have%20a%20gradient%20from%20light%20blue%20to%20white%20to%20seamlessly%20blend%20with%20the%20website%20background.%20The%20right%20side%20should%20show%20a%20futuristic%20AI%20interface%20with%20glowing%20elements%20and%20data%20points.%20The%20overall%20aesthetic%20should%20be%20high-tech%2C%20professional%2C%20and%20trustworthy%2C%20with%20a%20focus%20on%20data%20privacy%20and%20personal%20technology.&width=600&height=500&seq=123456&orientation=landscape" alt="Prifina Personal AI Twin" class="w-full h-auto rounded-lg shadow-lg object-cover object-top">
-                </div>
-            </div>
-            <div class="flex justify-center mt-16">
-                <a href="#features" class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center animate-bounce">
-                    <div class="w-6 h-6 flex items-center justify-center text-primary">
-                        <i class="ri-arrow-down-line"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <img src="https://readdy.ai/api/search-image?query=A sophisticated visualization of personal data management through AI. The image shows a person interacting with a holographic interface that displays various data points and connections. The interface has a clean, modern design with teal accents (#00BFAE) and dark blue elements (#003366). The background is minimalist and light, creating a sense of space and clarity. The technology appears advanced but user-friendly, emphasizing the concept of personal data ownership and AI assistance. The overall mood is innovative, secure, and empowering.&width=600&height=500&seq=123457&orientation=landscape" alt="Personal AI Twin" class="w-full h-auto rounded-xl shadow-lg object-cover object-top">
-                </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold mb-6">Your Personal AI Twin</h2>
-                    <p class="text-lg text-gray-700 mb-8 body-text">Prifina creates a secure digital twin that learns your preferences while keeping your data private. Unlike other AI assistants, your data stays with you - not on corporate servers.</p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 mt-1 mr-3 flex items-center justify-center text-primary">
-                                <i class="ri-check-line"></i>
-                            </div>
-                            <p class="text-gray-700 body-text">Complete ownership of your personal data</p>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 mt-1 mr-3 flex items-center justify-center text-primary">
-                                <i class="ri-check-line"></i>
-                            </div>
-                            <p class="text-gray-700 body-text">Personalized AI that learns your preferences</p>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 mt-1 mr-3 flex items-center justify-center text-primary">
-                                <i class="ri-check-line"></i>
-                            </div>
-                            <p class="text-gray-700 body-text">Secure local processing with end-to-end encryption</p>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 mt-1 mr-3 flex items-center justify-center text-primary">
-                                <i class="ri-check-line"></i>
-                            </div>
-                            <p class="text-gray-700 body-text">Seamless integration with your favorite apps</p>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 mt-1 mr-3 flex items-center justify-center text-primary">
-                                <i class="ri-check-line"></i>
-                            </div>
-                            <p class="text-gray-700 body-text">Advanced insights without compromising privacy</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">How Prifina Works</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto body-text">Our revolutionary approach puts you in control while delivering powerful AI capabilities.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 rounded-xl p-8 text-center card-hover">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-8 h-8 flex items-center justify-center text-primary">
-                            <i class="ri-database-2-line"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">1. Collect Your Data</h3>
-                    <p class="text-gray-600 body-text">Securely import and store your data from various services in your personal data vault.</p>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8 text-center card-hover">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-8 h-8 flex items-center justify-center text-primary">
-                            <i class="ri-ai-generate-line"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">2. Train Your AI Twin</h3>
-                    <p class="text-gray-600 body-text">Your AI learns your preferences and behaviors while keeping all processing local.</p>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8 text-center card-hover">
-                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-8 h-8 flex items-center justify-center text-primary">
-                            <i class="ri-rocket-line"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">3. Unlock Possibilities</h3>
-                    <p class="text-gray-600 body-text">Your AI twin works for you across apps while maintaining your privacy.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Use Cases Section -->
-    <section id="use-cases" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">What You Can Do With Prifina</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto body-text">Discover the many ways your personal AI twin can enhance your digital life.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
-                    <div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
-                        <i class="ri-calendar-line ri-2x"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Smart Scheduling</h3>
-                    <p class="text-gray-600 body-text">Your AI learns your preferences and automatically suggests optimal meeting times based on your habits and priorities.</p>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
-                    <div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
-                        <i class="ri-shopping-cart-line ri-2x"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Personalized Shopping</h3>
-                    <p class="text-gray-600 body-text">Get tailored product recommendations without sharing your browsing history with retailers.</p>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
-                    <div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
-                        <i class="ri-health-book-line ri-2x"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Health Insights</h3>
-                    <p class="text-gray-600 body-text">Connect your health data for personalized wellness recommendations while maintaining privacy.</p>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
-                    <div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
-                        <i class="ri-money-dollar-circle-line ri-2x"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Financial Management</h3>
-                    <p class="text-gray-600 body-text">Analyze spending patterns and receive personalized budgeting advice without sharing bank details.</p>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
-                    <div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
-                        <i class="ri-mail-line ri-2x"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Email Prioritization</h3>
-                    <p class="text-gray-600 body-text">Your AI twin learns which emails matter most to you and helps manage your inbox efficiently.</p>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
-                    <div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
-                        <i class="ri-group-line ri-2x"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Social Connection</h3>
-                    <p class="text-gray-600 body-text">Stay connected with friends and family with smart reminders based on your relationship patterns.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Data Ownership Banner -->
-    <section class="py-12 bg-secondary">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-2xl font-semibold text-white mb-4">Your Data Should Belong to You, Not Corporations</h2>
-            <p class="text-lg text-white mb-6 max-w-3xl mx-auto">Prifina is built on the principle that individuals should own and control their personal data.</p>
-            <a href="#" class="text-primary hover:underline font-medium text-lg">Learn more about our data philosophy →</a>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">What Our Users Say</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto body-text">Join thousands of satisfied users who have taken control of their digital lives.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-lg shadow-sm p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-primary font-semibold">JD</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">James Davidson</h4>
-                            <p class="text-sm text-gray-500">Marketing Director</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic body-text">"Prifina has completely changed how I interact with my data. I'm getting all the benefits of AI assistance without worrying about my information being sold to advertisers. It's the future of personal computing."</p>
-                    <div class="mt-4 flex">
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-primary font-semibold">SR</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Sarah Reynolds</h4>
-                            <p class="text-sm text-gray-500">Healthcare Professional</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic body-text">"As someone who works with sensitive information daily, privacy is paramount to me. Prifina gives me peace of mind knowing my personal data stays with me while still providing intelligent assistance across all my devices."</p>
-                    <div class="mt-4 flex">
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-primary font-semibold">MK</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Michael Kinsella</h4>
-                            <p class="text-sm text-gray-500">Software Engineer</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic body-text">"The technical architecture behind Prifina is impressive. As a developer, I appreciate how they've built a system that keeps computation local while still delivering powerful AI capabilities. It's the ethical approach to AI we've been waiting for."</p>
-                    <div class="mt-4 flex">
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-half-fill"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-sm p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-primary font-semibold">EL</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Elena Lindgren</h4>
-                            <p class="text-sm text-gray-500">Small Business Owner</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic body-text">"Prifina has transformed how I manage my business. The personalized insights help me make better decisions while keeping my customer data secure. It's like having a personal assistant who actually respects boundaries."</p>
-                    <div class="mt-4 flex">
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
-                            <i class="ri-star-fill"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-r from-secondary to-primary rounded-2xl overflow-hidden shadow-xl">
-                <div class="px-6 py-12 md:p-12 md:flex items-center justify-between">
-                    <div class="md:w-2/3 mb-8 md:mb-0">
-                        <h2 class="text-3xl font-bold text-white mb-4">Ready to Take Control of Your Digital Life?</h2>
-                        <p class="text-white text-opacity-90 text-lg max-w-xl">Join thousands of users who have already reclaimed their data sovereignty with Prifina.</p>
-                    </div>
-                    <div>
-                        <a href="#" class="inline-block bg-white text-secondary px-8 py-4 rounded-button text-base font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 whitespace-nowrap">Start Your Free Trial</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto">
-                <h2 class="text-2xl font-bold mb-4">Stay Updated on Data Privacy</h2>
-                <p class="text-gray-600 mb-8 body-text">Join our newsletter for the latest updates on data privacy, AI advancements, and Prifina features.</p>
-                <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                    <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-3 rounded-button border border-gray-300 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-gray-700">
-                    <button type="submit" class="bg-primary text-white px-6 py-3 rounded-button font-semibold hover:bg-opacity-90 transition-all whitespace-nowrap">Subscribe</button>
-                </form>
-                <p class="text-sm text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-secondary text-white pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <a href="#" class="text-2xl font-['Pacifico'] text-white mb-6 inline-block">logo</a>
-                    <p class="text-gray-300 mt-4 text-sm">Prifina empowers individuals to take control of their digital lives through personal AI that respects privacy.</p>
-                    <div class="flex space-x-4 mt-6">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-opacity-20 transition-all">
-                            <div class="w-5 h-5 flex items-center justify-center">
-                                <i class="ri-twitter-x-line"></i>
-                            </div>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-opacity-20 transition-all">
-                            <div class="w-5 h-5 flex items-center justify-center">
-                                <i class="ri-linkedin-line"></i>
-                            </div>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-opacity-20 transition-all">
-                            <div class="w-5 h-5 flex items-center justify-center">
-                                <i class="ri-facebook-line"></i>
-                            </div>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-opacity-20 transition-all">
-                            <div class="w-5 h-5 flex items-center justify-center">
-                                <i class="ri-instagram-line"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Product</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Features</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Use Cases</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Pricing</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Integrations</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Roadmap</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Documentation</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">API Reference</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Blog</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Community</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Support</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Company</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">About Us</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Careers</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Press</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white hover:underline">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-white border-opacity-10 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm">&copy; 2025 Prifina, Inc. All rights reserved.</p>
-                    <div class="flex space-x-6 mt-4 md:mt-0">
-                        <div class="w-8 h-5 flex items-center justify-center">
-                            <i class="ri-visa-fill text-gray-300"></i>
-                        </div>
-                        <div class="w-8 h-5 flex items-center justify-center">
-                            <i class="ri-mastercard-fill text-gray-300"></i>
-                        </div>
-                        <div class="w-8 h-5 flex items-center justify-center">
-                            <i class="ri-paypal-fill text-gray-300"></i>
-                        </div>
-                        <div class="w-8 h-5 flex items-center justify-center">
-                            <i class="ri-apple-fill text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script id="navScroll">
-        document.addEventListener('DOMContentLoaded', function() {
-            const nav = document.querySelector('nav');
-            
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 10) {
-                    nav.classList.add('shadow-md');
-                    nav.classList.remove('shadow-sm');
-                } else {
-                    nav.classList.remove('shadow-md');
-                    nav.classList.add('shadow-sm');
-                }
-            });
-        });
-    </script>
-
-    <script id="smoothScroll">
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const navHeight = document.querySelector('nav').offsetHeight;
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-95 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#product" class="nav-link text-sm font-medium text-gray-700 hover:text-primary">Product</a>
+<a href="#use-cases" class="nav-link text-sm font-medium text-gray-700 hover:text-primary">Use Cases</a>
+<a href="#contact" class="nav-link text-sm font-medium text-gray-700 hover:text-primary">Contact</a>
+<a href="#about" class="nav-link text-sm font-medium text-gray-700 hover:text-primary">About</a>
+<a href="#pricing" class="nav-link text-sm font-medium text-gray-700 hover:text-primary">Pricing</a>
+</div>
+<div class="flex items-center">
+<a href="#" class="bg-primary text-white px-4 py-2 rounded-button text-sm font-semibold hover:bg-opacity-90 transition-all whitespace-nowrap">Get Started</a>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero-gradient pt-32 pb-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24 w-full">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 mb-12 md:mb-0">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Your Personal AI Twin for Data Ownership</h1>
+<p class="text-lg md:text-xl text-gray-600 mb-8 max-w-lg">Take control of your digital life with Prifina's revolutionary personal AI that keeps your data private while working for you.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#" class="bg-primary text-white px-6 py-3 rounded-button text-base font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 flex items-center justify-center whitespace-nowrap">
+Get Started Free
+<div class="w-5 h-5 ml-2 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+<a href="#how-it-works" class="bg-white text-gray-800 border border-gray-300 px-6 py-3 rounded-button text-base font-semibold hover:bg-gray-50 transition-all flex items-center justify-center whitespace-nowrap">
+Learn How It Works
+</a>
+</div>
+</div>
+<div class="md:w-1/2">
+<img src="https://readdy.ai/api/search-image?query=A%20modern%2C%20sleek%20digital%20interface%20showing%20a%20personal%20AI%20assistant%20with%20data%20visualization%20elements.%20The%20image%20should%20have%20a%20clean%2C%20minimalist%20design%20with%20teal%20and%20dark%20blue%20accents.%20The%20left%20side%20should%20have%20a%20gradient%20from%20light%20blue%20to%20white%20to%20seamlessly%20blend%20with%20the%20website%20background.%20The%20right%20side%20should%20show%20a%20futuristic%20AI%20interface%20with%20glowing%20elements%20and%20data%20points.%20The%20overall%20aesthetic%20should%20be%20high-tech%2C%20professional%2C%20and%20trustworthy%2C%20with%20a%20focus%20on%20data%20privacy%20and%20personal%20technology.&width=600&height=500&seq=123456&orientation=landscape" alt="Prifina Personal AI Twin" class="w-full h-auto rounded-lg shadow-lg object-cover object-top">
+</div>
+</div>
+<div class="flex justify-center mt-16">
+<a href="#features" class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center animate-bounce">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-arrow-down-line"></i>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section id="features" class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="md:w-1/2">
+<img src="https://readdy.ai/api/search-image?query=A sophisticated visualization of personal data management through AI. The image shows a person interacting with a holographic interface that displays various data points and connections. The interface has a clean, modern design with teal accents (#00BFAE) and dark blue elements (#003366). The background is minimalist and light, creating a sense of space and clarity. The technology appears advanced but user-friendly, emphasizing the concept of personal data ownership and AI assistance. The overall mood is innovative, secure, and empowering.&width=600&height=500&seq=123457&orientation=landscape" alt="Personal AI Twin" class="w-full h-auto rounded-xl shadow-lg object-cover object-top">
+</div>
+<div class="md:w-1/2">
+<h2 class="text-3xl font-bold mb-6">Your Personal AI Twin</h2>
+<p class="text-lg text-gray-700 mb-8 body-text">Prifina creates a secure digital twin that learns your preferences while keeping your data private. Unlike other AI assistants, your data stays with you - not on corporate servers.</p>
+<ul class="space-y-4">
+<li class="flex items-start">
+<div class="w-6 h-6 mt-1 mr-3 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<p class="text-gray-700 body-text">Complete ownership of your personal data</p>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 mt-1 mr-3 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<p class="text-gray-700 body-text">Personalized AI that learns your preferences</p>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 mt-1 mr-3 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<p class="text-gray-700 body-text">Secure local processing with end-to-end encryption</p>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 mt-1 mr-3 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<p class="text-gray-700 body-text">Seamless integration with your favorite apps</p>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 mt-1 mr-3 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<p class="text-gray-700 body-text">Advanced insights without compromising privacy</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section id="how-it-works" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4">How Prifina Works</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto body-text">Our revolutionary approach puts you in control while delivering powerful AI capabilities.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-gray-50 rounded-xl p-8 text-center card-hover">
+<div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-database-2-line"></i>
+</div>
+</div>
+<h3 class="text-xl font-semibold mb-4">1. Collect Your Data</h3>
+<p class="text-gray-600 body-text">Securely import and store your data from various services in your personal data vault.</p>
+</div>
+<div class="bg-gray-50 rounded-xl p-8 text-center card-hover">
+<div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-ai-generate-line"></i>
+</div>
+</div>
+<h3 class="text-xl font-semibold mb-4">2. Train Your AI Twin</h3>
+<p class="text-gray-600 body-text">Your AI learns your preferences and behaviors while keeping all processing local.</p>
+</div>
+<div class="bg-gray-50 rounded-xl p-8 text-center card-hover">
+<div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-rocket-line"></i>
+</div>
+</div>
+<h3 class="text-xl font-semibold mb-4">3. Unlock Possibilities</h3>
+<p class="text-gray-600 body-text">Your AI twin works for you across apps while maintaining your privacy.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Use Cases Section -->
+<section id="use-cases" class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4">What You Can Do With Prifina</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto body-text">Discover the many ways your personal AI twin can enhance your digital life.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
+<i class="ri-calendar-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3">Smart Scheduling</h3>
+<p class="text-gray-600 body-text">Your AI learns your preferences and automatically suggests optimal meeting times based on your habits and priorities.</p>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
+<i class="ri-shopping-cart-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3">Personalized Shopping</h3>
+<p class="text-gray-600 body-text">Get tailored product recommendations without sharing your browsing history with retailers.</p>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
+<i class="ri-health-book-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3">Health Insights</h3>
+<p class="text-gray-600 body-text">Connect your health data for personalized wellness recommendations while maintaining privacy.</p>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
+<i class="ri-money-dollar-circle-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3">Financial Management</h3>
+<p class="text-gray-600 body-text">Analyze spending patterns and receive personalized budgeting advice without sharing bank details.</p>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
+<i class="ri-mail-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3">Email Prioritization</h3>
+<p class="text-gray-600 body-text">Your AI twin learns which emails matter most to you and helps manage your inbox efficiently.</p>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-4">
+<i class="ri-group-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3">Social Connection</h3>
+<p class="text-gray-600 body-text">Stay connected with friends and family with smart reminders based on your relationship patterns.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Ownership Banner -->
+<section class="py-12 bg-secondary">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-2xl font-semibold text-white mb-4">Your Data Should Belong to You, Not Corporations</h2>
+<p class="text-lg text-white mb-6 max-w-3xl mx-auto">Prifina is built on the principle that individuals should own and control their personal data.</p>
+<a href="#" class="text-primary hover:underline font-medium text-lg">Learn more about our data philosophy →</a>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4">What Our Users Say</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto body-text">Join thousands of satisfied users who have taken control of their digital lives.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-white rounded-lg shadow-sm p-8">
+<div class="flex items-center mb-6">
+<div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+<span class="text-primary font-semibold">JD</span>
+</div>
+<div>
+<h4 class="font-semibold">James Davidson</h4>
+<p class="text-sm text-gray-500">Marketing Director</p>
+</div>
+</div>
+<p class="text-gray-700 italic body-text">"Prifina has completely changed how I interact with my data. I'm getting all the benefits of AI assistance without worrying about my information being sold to advertisers. It's the future of personal computing."</p>
+<div class="mt-4 flex">
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-8">
+<div class="flex items-center mb-6">
+<div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+<span class="text-primary font-semibold">SR</span>
+</div>
+<div>
+<h4 class="font-semibold">Sarah Reynolds</h4>
+<p class="text-sm text-gray-500">Healthcare Professional</p>
+</div>
+</div>
+<p class="text-gray-700 italic body-text">"As someone who works with sensitive information daily, privacy is paramount to me. Prifina gives me peace of mind knowing my personal data stays with me while still providing intelligent assistance across all my devices."</p>
+<div class="mt-4 flex">
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-8">
+<div class="flex items-center mb-6">
+<div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+<span class="text-primary font-semibold">MK</span>
+</div>
+<div>
+<h4 class="font-semibold">Michael Kinsella</h4>
+<p class="text-sm text-gray-500">Software Engineer</p>
+</div>
+</div>
+<p class="text-gray-700 italic body-text">"The technical architecture behind Prifina is impressive. As a developer, I appreciate how they've built a system that keeps computation local while still delivering powerful AI capabilities. It's the ethical approach to AI we've been waiting for."</p>
+<div class="mt-4 flex">
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-half-fill"></i>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-8">
+<div class="flex items-center mb-6">
+<div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+<span class="text-primary font-semibold">EL</span>
+</div>
+<div>
+<h4 class="font-semibold">Elena Lindgren</h4>
+<p class="text-sm text-gray-500">Small Business Owner</p>
+</div>
+</div>
+<p class="text-gray-700 italic body-text">"Prifina has transformed how I manage my business. The personalized insights help me make better decisions while keeping my customer data secure. It's like having a personal assistant who actually respects boundaries."</p>
+<div class="mt-4 flex">
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gradient-to-r from-secondary to-primary rounded-2xl overflow-hidden shadow-xl">
+<div class="px-6 py-12 md:p-12 md:flex items-center justify-between">
+<div class="md:w-2/3 mb-8 md:mb-0">
+<h2 class="text-3xl font-bold text-white mb-4">Ready to Take Control of Your Digital Life?</h2>
+<p class="text-white text-opacity-90 text-lg max-w-xl">Join thousands of users who have already reclaimed their data sovereignty with Prifina.</p>
+</div>
+<div>
+<a href="#" class="inline-block bg-white text-secondary px-8 py-4 rounded-button text-base font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 whitespace-nowrap">Start Your Free Trial</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto">
+<h2 class="text-2xl font-bold mb-4">Stay Updated on Data Privacy</h2>
+<p class="text-gray-600 mb-8 body-text">Join our newsletter for the latest updates on data privacy, AI advancements, and Prifina features.</p>
+<form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+<input type="email" placeholder="Enter your email" class="flex-grow px-4 py-3 rounded-button border border-gray-300 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-gray-700">
+<button type="submit" class="bg-primary text-white px-6 py-3 rounded-button font-semibold hover:bg-opacity-90 transition-all whitespace-nowrap">Subscribe</button>
+</form>
+<p class="text-sm text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-secondary text-white pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="text-2xl font-['Pacifico'] text-white mb-6 inline-block">logo</a>
+<p class="text-gray-300 mt-4 text-sm">Prifina empowers individuals to take control of their digital lives through personal AI that respects privacy.</p>
+<div class="flex space-x-4 mt-6">
+<a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-opacity-20 transition-all">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-twitter-x-line"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-opacity-20 transition-all">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-linkedin-line"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-opacity-20 transition-all">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-facebook-line"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-opacity-20 transition-all">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-instagram-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Product</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Features</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Use Cases</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Pricing</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Integrations</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Roadmap</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Resources</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Documentation</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">API Reference</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Blog</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Community</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Support</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Company</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">About Us</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Careers</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Press</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Privacy Policy</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white hover:underline">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-white border-opacity-10 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm">&copy; 2025 Prifina, Inc. All rights reserved.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<div class="w-8 h-5 flex items-center justify-center">
+<i class="ri-visa-fill text-gray-300"></i>
+</div>
+<div class="w-8 h-5 flex items-center justify-center">
+<i class="ri-mastercard-fill text-gray-300"></i>
+</div>
+<div class="w-8 h-5 flex items-center justify-center">
+<i class="ri-paypal-fill text-gray-300"></i>
+</div>
+<div class="w-8 h-5 flex items-center justify-center">
+<i class="ri-apple-fill text-gray-300"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script id="navScroll">
+document.addEventListener('DOMContentLoaded', function() {
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 10) {
+nav.classList.add('shadow-md');
+nav.classList.remove('shadow-sm');
+} else {
+nav.classList.remove('shadow-md');
+nav.classList.add('shadow-sm');
+}
+});
+});
+</script>
+<script id="smoothScroll">
+document.addEventListener('DOMContentLoaded', function() {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+const navHeight = document.querySelector('nav').offsetHeight;
+const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
 </body>
 </html>
