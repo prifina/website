@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prifina - Your Personal AI Twin</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#00BFAE',secondary:'#FFFFFF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=abstract%2520modern%2520technology%2520background%2520with%2520soft%2520gradient%2520teal%2520and%2520white%2520colors%252C%2520subtle%2520geometric%2520patterns%252C%2520clean%2520minimal%2520design%252C%2520perfect%2520for%2520AI%2520technology%2520product%2520page%252C%2520with%2520ample%2520space%2520on%2520the%2520left%2520side%2520for%2520text%2520content%252C%2520professional%2520high-quality%2520product%2520photography&width=1920&height=800&seq=1&orientation=landscape');
+background-size: cover;
+background-position: center right;
+}
+.hero-content {
+background: linear-gradient(90deg, rgba(255,255,255,1) 30%, rgba(255,255,255,0.9) 70%, rgba(255,255,255,0) 100%);
+}
+input:focus {
+outline: none;
+}
+.testimonial-card:hover {
+transform: translateY(-5px);
+}
+.use-case-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(0, 191, 174, 0.1);
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header/Navigation -->
+<header class="w-full bg-white shadow-sm fixed top-0 left-0 z-50">
+<div class="container mx-auto px-6 py-4 flex items-center justify-between">
+<a href="#" class="text-3xl font-['Pacifico'] text-primary">Prifina</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="#product" class="text-gray-700 hover:text-primary transition-colors">Product</a>
+<a href="#use-cases" class="text-gray-700 hover:text-primary transition-colors">Use Cases</a>
+<a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+<a href="#about" class="text-gray-700 hover:text-primary transition-colors">About</a>
+<a href="#pricing" class="text-gray-700 hover:text-primary transition-colors">Pricing</a>
+</nav>
+<div class="flex items-center">
+<a href="#" class="bg-primary text-white px-6 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Get Started</a>
+</div>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="w-full min-h-[800px] pt-24">
+<div class="container mx-auto px-6 py-20">
+<div class="flex items-center justify-between">
+<div class="max-w-2xl">
+<h1 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">Your Personal AI Twin, Powered by Your Data</h1>
+<p class="text-xl text-gray-700 mb-8 leading-relaxed">
+Prifina empowers you to create a Personal AI Twin—an AI shaped by your own knowledge, experiences, and perspectives. Unlike one-size-fits-all enterprise systems, this Twin amplifies your unique expertise to deliver insights and conversations tailored to you.
+</p>
+<a href="#" class="inline-block bg-primary text-white px-8 py-4 text-lg font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Get Started</a>
+</div>
+<div class="hidden lg:block w-[600px] h-[600px]">
+<img src="https://readdy.ai/api/search-image?query=modern%2520futuristic%2520AI%2520digital%2520human%2520avatar%2520with%2520glowing%2520circuits%2520and%2520neural%2520networks%252C%2520elegant%2520and%2520minimalist%2520design%252C%2520teal%2520and%2520white%2520color%2520scheme%252C%2520transparent%2520background%252C%2520professional%2520high-end%25203D%2520rendering%252C%2520clean%2520composition&width=600&height=600&seq=2&orientation=squarish" 
+alt="AI Twin Visualization" 
+class="w-full h-full object-contain">
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section id="how-it-works" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">A simple four-step process to create your personal AI Twin</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Step 1 -->
+<div class="bg-white p-8 rounded shadow-md text-center relative">
+<div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+<i class="ri-database-2-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-3">Collect</h3>
+<p class="text-gray-600">Gather your personal data from various sources like wearables, apps, and platforms into one place.</p>
+<div class="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+<i class="ri-arrow-right-line ri-lg text-primary"></i>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-white p-8 rounded shadow-md text-center relative">
+<div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+<i class="ri-link-m line ri-xl text-primary"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-3">Combine</h3>
+<p class="text-gray-600">Integrate and organize your data to build a comprehensive personal dataset.</p>
+<div class="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+<i class="ri-arrow-right-line ri-lg text-primary"></i>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-white p-8 rounded shadow-md text-center relative">
+<div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+<i class="ri-rocket-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-3">Utilize</h3>
+<p class="text-gray-600">Leverage your data to power your Personal AI Twin, enabling personalized insights and interactions.</p>
+<div class="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+<i class="ri-arrow-right-line ri-lg text-primary"></i>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="bg-white p-8 rounded shadow-md text-center">
+<div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+<i class="ri-shield-check-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-3">Keep Private</h3>
+<p class="text-gray-600">Your data remains private-by-default, ensuring full ownership and control.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Benefits Section -->
+<section id="benefits" class="py-20">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-gray-900 mb-4">Key Benefits</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover how your Personal AI Twin can transform your digital experience</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+<!-- Benefit 1 -->
+<div class="bg-white p-10 rounded-xl shadow-lg hover:shadow-2xl transition-shadow transform hover:-translate-y-1 duration-300 flex items-start space-x-6">
+<div class="w-16 h-16 bg-primary bg-opacity-10 rounded-2xl flex items-center justify-center flex-shrink-0">
+<i class="ri-lock-line ri-2x text-primary"></i>
+</div>
+<div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-4">Private by Design</h3>
+<p class="text-gray-600 leading-relaxed">Your AI Twin operates within your personal data environment, ensuring your information remains under your control at all times. We prioritize your privacy above everything else.</p>
+</div>
+</div>
+<!-- Benefit 2 -->
+<div class="bg-white p-10 rounded-xl shadow-lg hover:shadow-2xl transition-shadow transform hover:-translate-y-1 duration-300 flex items-start space-x-6">
+<div class="w-16 h-16 bg-primary bg-opacity-10 rounded-2xl flex items-center justify-center flex-shrink-0">
+<i class="ri-puzzle-line ri-2x text-primary"></i>
+</div>
+<div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-4">Modular Skills</h3>
+<p class="text-gray-600 leading-relaxed">Add custom Skills to your Twin—like journaling, fitness tracking, or financial insights—to enhance its capabilities based on your unique needs and goals.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Use Cases Section -->
+<section id="use-cases" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-gray-900 mb-4">Use Cases</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover how different professionals and individuals can benefit from Personal AI Twins</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+<!-- Use Case 1: Professionals -->
+<div class="use-case-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-primary">
+<div class="flex items-center mb-6">
+<div class="w-14 h-14 bg-primary bg-opacity-10 rounded-2xl flex items-center justify-center mr-4">
+<i class="ri-briefcase-4-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900">For Professionals</h3>
+</div>
+<p class="text-gray-600 leading-relaxed mb-6">Enhance your expertise and automate routine tasks. Your AI Twin can handle consultations, share knowledge, and represent your professional perspective.</p>
+<ul class="space-y-3 text-gray-600">
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-2"></i>
+<span>Automated client consultations</span>
+</li>
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-2"></i>
+<span>Knowledge sharing</span>
+</li>
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-2"></i>
+<span>Personal branding</span>
+</li>
+</ul>
+</div>
+<!-- Use Case 2: Educators -->
+<div class="use-case-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-primary">
+<div class="flex items-center mb-6">
+<div class="w-14 h-14 bg-primary bg-opacity-10 rounded-2xl flex items-center justify-center mr-4">
+<i class="ri-book-open-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900">For Educators</h3>
+</div>
+<p class="text-gray-600 leading-relaxed mb-6">Transform your teaching experience with personalized learning support. Let your AI Twin handle routine questions while you focus on meaningful interactions.</p>
+<ul class="space-y-3 text-gray-600">
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-2"></i>
+<span>24/7 student support</span>
+</li>
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-2"></i>
+<span>Personalized learning paths</span>
+</li>
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-2"></i>
+<span>Resource management</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 bg-primary bg-opacity-5">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-gray-900 mb-4">What People Are Saying</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">Hear from professionals already using Personal AI Twins</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+<!-- Testimonial 1 -->
+<div class="testimonial-card bg-white p-8 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+<div class="flex items-start mb-6">
+<div class="text-primary text-6xl font-serif leading-none mr-4">"</div>
+<p class="text-gray-700 italic text-lg leading-relaxed">AI tools like these digital twins are transforming the way we teach and learn, making education more accessible and personalized than ever before.</p>
+</div>
+<div class="flex items-center border-t border-gray-100 pt-6">
+<div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+<i class="ri-user-line ri-xl text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900 text-lg">Negar Kalantar</h4>
+<p class="text-gray-600">Professor at CCA</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="testimonial-card bg-white p-8 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+<div class="flex items-start mb-6">
+<div class="text-primary text-6xl font-serif leading-none mr-4">"</div>
+<p class="text-gray-700 italic text-lg leading-relaxed">Patricia AI has been transformative for my teaching, allowing me to provide personalized support to students even outside of class hours.</p>
+</div>
+<div class="flex items-center border-t border-gray-100 pt-6">
+<div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+<i class="ri-user-line ri-xl text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900 text-lg">Patricia McManus</h4>
+<p class="text-gray-600">Houston Community College</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-20 bg-white">
+<div class="container mx-auto px-6 text-center">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-4xl font-bold text-gray-900 mb-4">Ready to Build Your Twin?</h2>
+<p class="text-xl text-gray-600 mb-8">Start your journey toward private, personalized intelligence.</p>
+<a href="#" class="inline-block bg-primary text-white px-8 py-4 text-lg font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Get Started</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-16">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+<div>
+<a href="#" class="text-3xl font-['Pacifico'] text-white mb-6 block">Prifina</a>
+<p class="text-gray-400 mb-6">Your Personal AI Twin, powered by your data.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-twitter-x-line ri-lg"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-linkedin-line ri-lg"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-github-line ri-lg"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Product</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Use Cases</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Security</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Resources</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">API</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Community</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Company</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Prifina. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script id="navigation-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.querySelector('.md\\:hidden');
+const nav = document.querySelector('nav');
+mobileMenuButton.addEventListener('click', function() {
+nav.classList.toggle('hidden');
+nav.classList.toggle('flex');
+nav.classList.toggle('flex-col');
+nav.classList.toggle('absolute');
+nav.classList.toggle('top-16');
+nav.classList.toggle('left-0');
+nav.classList.toggle('w-full');
+nav.classList.toggle('bg-white');
+nav.classList.toggle('shadow-md');
+nav.classList.toggle('p-4');
+nav.classList.toggle('space-y-4');
+nav.classList.toggle('space-x-0');
+});
+});
+</script>
+<script id="smooth-scroll-script">
+document.addEventListener('DOMContentLoaded', function() {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+</body>
+</html>
