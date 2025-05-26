@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Prifina</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#3AD6A4',secondary:'#1C1C1E'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3AD6A4;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .form-input:focus {
+            border-color: #3AD6A4;
+            box-shadow: 0 0 0 3px rgba(58, 214, 164, 0.2);
+        }
+        .btn-primary {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(58, 214, 164, 0.4);
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-['Pacifico'] text-primary">Prifina</a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="nav-link text-secondary hover:text-primary transition-colors">Home</a>
+                <a href="#" class="nav-link text-secondary hover:text-primary transition-colors">Product</a>
+                <a href="#" class="nav-link text-secondary hover:text-primary transition-colors">Use Cases</a>
+                <a href="#" class="nav-link active text-primary font-medium">Contact</a>
+                <a href="#" class="nav-link text-secondary hover:text-primary transition-colors">About</a>
+                <a href="#" class="nav-link text-secondary hover:text-primary transition-colors">Pricing</a>
+            </div>
+            
+            <!-- CTA Button -->
+            <button class="hidden md:block bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Get Started</button>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden w-10 h-10 flex items-center justify-center text-secondary" id="mobileMenuBtn">
+                <i class="ri-menu-line ri-lg"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="md:hidden bg-white shadow-md absolute w-full left-0 top-full hidden" id="mobileMenu">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="#" class="text-secondary hover:text-primary py-2 transition-colors">Home</a>
+                <a href="#" class="text-secondary hover:text-primary py-2 transition-colors">Product</a>
+                <a href="#" class="text-secondary hover:text-primary py-2 transition-colors">Use Cases</a>
+                <a href="#" class="text-primary font-medium py-2">Contact</a>
+                <a href="#" class="text-secondary hover:text-primary py-2 transition-colors">About</a>
+                <a href="#" class="text-secondary hover:text-primary py-2 transition-colors">Pricing</a>
+                <button class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-24 pb-16">
+        <div class="container mx-auto px-6">
+            <!-- Header Section -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-secondary mb-4">Let's Connect.</h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Questions? Ideas? Drop us a message and we'll get back to you soon.</p>
+            </div>
+            
+            <!-- Contact Form Section -->
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-8 md:p-10">
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required class="form-input w-full px-4 py-3 border border-gray-200 !rounded-button focus:outline-none" placeholder="Enter your name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" required class="form-input w-full px-4 py-3 border border-gray-200 !rounded-button focus:outline-none" placeholder="Enter your email">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject (Optional)</label>
+                            <input type="text" id="subject" name="subject" class="form-input w-full px-4 py-3 border border-gray-200 !rounded-button focus:outline-none" placeholder="What is this regarding?">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="form-input w-full px-4 py-3 border border-gray-200 !rounded-button focus:outline-none resize-none" placeholder="Your message here..."></textarea>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="consent" name="consent" required class="hidden">
+                            <div class="relative w-5 h-5 border border-gray-300 rounded flex items-center justify-center mr-3 cursor-pointer" id="customCheckbox">
+                                <div class="absolute w-3 h-3 bg-primary rounded opacity-0 transition-opacity" id="checkboxIndicator"></div>
+                            </div>
+                            <label for="consent" class="text-sm text-gray-600 cursor-pointer">I agree to the processing of my personal data in accordance with the <a href="#" class="text-primary hover:underline">Privacy Policy</a>.</label>
+                        </div>
+                        
+                        <div class="pt-2">
+                            <button type="submit" class="btn-primary bg-primary text-white px-8 py-3 !rounded-button font-medium whitespace-nowrap w-full md:w-auto">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Additional Contact Information -->
+                <div class="mt-12 grid md:grid-cols-3 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg flex flex-col items-center text-center">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
+                            <i class="ri-mail-line text-primary ri-lg"></i>
+                        </div>
+                        <h3 class="font-medium text-secondary mb-2">Email Us</h3>
+                        <p class="text-gray-600 mb-3">For general inquiries</p>
+                        <a href="mailto:contact@prifina.com" class="text-primary hover:underline">contact@prifina.com</a>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg flex flex-col items-center text-center">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
+                            <i class="ri-customer-service-2-line text-primary ri-lg"></i>
+                        </div>
+                        <h3 class="font-medium text-secondary mb-2">Support</h3>
+                        <p class="text-gray-600 mb-3">Need technical help?</p>
+                        <a href="mailto:support@prifina.com" class="text-primary hover:underline">support@prifina.com</a>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg flex flex-col items-center text-center">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
+                            <i class="ri-building-4-line text-primary ri-lg"></i>
+                        </div>
+                        <h3 class="font-medium text-secondary mb-2">Business</h3>
+                        <p class="text-gray-600 mb-3">Partnership opportunities</p>
+                        <a href="mailto:business@prifina.com" class="text-primary hover:underline">business@prifina.com</a>
+                    </div>
+                </div>
+                
+                <!-- FAQ Section -->
+                <div class="mt-16">
+                    <h2 class="text-2xl font-bold text-secondary mb-8 text-center">Frequently Asked Questions</h2>
+                    <div class="space-y-4">
+                        <div class="border border-gray-100 rounded-lg overflow-hidden">
+                            <button class="faq-toggle w-full flex items-center justify-between p-5 text-left bg-white hover:bg-gray-50 transition-colors">
+                                <span class="font-medium text-secondary">How quickly can I expect a response?</span>
+                                <i class="ri-arrow-down-s-line text-gray-400 ri-lg faq-icon"></i>
+                            </button>
+                            <div class="faq-content hidden px-5 pb-5 pt-0">
+                                <p class="text-gray-600">We typically respond to all inquiries within 24-48 business hours. For urgent matters, please indicate so in your message subject.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-100 rounded-lg overflow-hidden">
+                            <button class="faq-toggle w-full flex items-center justify-between p-5 text-left bg-white hover:bg-gray-50 transition-colors">
+                                <span class="font-medium text-secondary">Do you offer demos of your product?</span>
+                                <i class="ri-arrow-down-s-line text-gray-400 ri-lg faq-icon"></i>
+                            </button>
+                            <div class="faq-content hidden px-5 pb-5 pt-0">
+                                <p class="text-gray-600">Yes! We offer personalized demos for teams and businesses. Please mention your interest in a demo in your message, and our team will schedule one at your convenience.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-100 rounded-lg overflow-hidden">
+                            <button class="faq-toggle w-full flex items-center justify-between p-5 text-left bg-white hover:bg-gray-50 transition-colors">
+                                <span class="font-medium text-secondary">Where can I find documentation for developers?</span>
+                                <i class="ri-arrow-down-s-line text-gray-400 ri-lg faq-icon"></i>
+                            </button>
+                            <div class="faq-content hidden px-5 pb-5 pt-0">
+                                <p class="text-gray-600">Our comprehensive developer documentation is available at <a href="#" class="text-primary hover:underline">docs.prifina.com</a>. You'll find API references, integration guides, and code examples.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-100 rounded-lg overflow-hidden">
+                            <button class="faq-toggle w-full flex items-center justify-between p-5 text-left bg-white hover:bg-gray-50 transition-colors">
+                                <span class="font-medium text-secondary">Do you have an office I can visit?</span>
+                                <i class="ri-arrow-down-s-line text-gray-400 ri-lg faq-icon"></i>
+                            </button>
+                            <div class="faq-content hidden px-5 pb-5 pt-0">
+                                <p class="text-gray-600">We have offices in San Francisco and Helsinki. Visits are by appointment only. Please contact us to schedule a meeting.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-1">
+                    <a href="#" class="text-2xl font-['Pacifico'] text-primary mb-4 inline-block">Prifina</a>
+                    <p class="text-gray-600 mb-6">Your data. Your AI. Your way.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-linkedin-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-github-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-medium text-secondary mb-4">Product</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Features</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Integrations</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Changelog</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-medium text-secondary mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Press</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-medium text-secondary mb-4">Legal</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">GDPR Compliance</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row md:items-center justify-between">
+                <p class="text-gray-500 text-sm">© 2025 Prifina. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="btn-primary bg-primary text-white px-6 py-2 !rounded-button font-medium whitespace-nowrap inline-flex items-center">
+                        Learn More About Prifina
+                        <i class="ri-arrow-right-line ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script id="mobileMenuScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenuBtn.innerHTML = '<i class="ri-close-line ri-lg"></i>';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+                }
+            });
+        });
+    </script>
+
+    <script id="formScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const customCheckbox = document.getElementById('customCheckbox');
+            const checkboxIndicator = document.getElementById('checkboxIndicator');
+            const consentCheckbox = document.getElementById('consent');
+            
+            // Custom checkbox functionality
+            customCheckbox.addEventListener('click', function() {
+                consentCheckbox.checked = !consentCheckbox.checked;
+                
+                if (consentCheckbox.checked) {
+                    checkboxIndicator.classList.remove('opacity-0');
+                    checkboxIndicator.classList.add('opacity-100');
+                } else {
+                    checkboxIndicator.classList.remove('opacity-100');
+                    checkboxIndicator.classList.add('opacity-0');
+                }
+            });
+            
+            // Form submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate form
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                if (!name || !email || !message || !consentCheckbox.checked) {
+                    alert('Please fill in all required fields and accept the privacy policy.');
+                    return;
+                }
+                
+                // Simulate form submission
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                submitButton.innerHTML = 'Sending...';
+                
+                setTimeout(function() {
+                    submitButton.innerHTML = 'Message Sent!';
+                    submitButton.classList.add('bg-green-600');
+                    
+                    // Reset form after 2 seconds
+                    setTimeout(function() {
+                        contactForm.reset();
+                        checkboxIndicator.classList.remove('opacity-100');
+                        checkboxIndicator.classList.add('opacity-0');
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = 'Send Message';
+                        submitButton.classList.remove('bg-green-600');
+                    }, 2000);
+                }, 1500);
+            });
+        });
+    </script>
+
+    <script id="faqScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqToggles = document.querySelectorAll('.faq-toggle');
+            
+            faqToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.faq-icon');
+                    
+                    // Close all other FAQs
+                    document.querySelectorAll('.faq-content').forEach(item => {
+                        if (item !== content && !item.classList.contains('hidden')) {
+                            item.classList.add('hidden');
+                            const otherIcon = item.previousElementSibling.querySelector('.faq-icon');
+                            otherIcon.classList.remove('ri-arrow-up-s-line');
+                            otherIcon.classList.add('ri-arrow-down-s-line');
+                        }
+                    });
+                    
+                    // Toggle current FAQ
+                    content.classList.toggle('hidden');
+                    
+                    if (content.classList.contains('hidden')) {
+                        icon.classList.remove('ri-arrow-up-s-line');
+                        icon.classList.add('ri-arrow-down-s-line');
+                    } else {
+                        icon.classList.remove('ri-arrow-down-s-line');
+                        icon.classList.add('ri-arrow-up-s-line');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
