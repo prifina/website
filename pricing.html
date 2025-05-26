@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | Prifina</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.custom-checkbox {
+position: relative;
+display: inline-block;
+width: 20px;
+height: 20px;
+border-radius: 4px;
+border: 2px solid #3AD6A4;
+background-color: white;
+cursor: pointer;
+}
+.custom-checkbox.checked:after {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 12px;
+height: 12px;
+border-radius: 2px;
+background-color: #3AD6A4;
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 44px;
+height: 24px;
+}
+.custom-switch-input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.custom-switch-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 24px;
+}
+.custom-switch-slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+.custom-switch-input:checked + .custom-switch-slider {
+background-color: #3AD6A4;
+}
+.custom-switch-input:checked + .custom-switch-slider:before {
+transform: translateX(20px);
+}
+.hero-bg {
+background-image: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.1) 100%), url('https://readdy.ai/api/search-image?query=A%20modern%20abstract%20digital%20art%20composition%20with%20flowing%20geometric%20shapes%20and%20subtle%20gradients.%20Soft%20curves%20and%20waves%20in%20shades%20of%20mint%20green%20and%20turquoise%20blend%20seamlessly.%20The%20design%20features%20elegant%20floating%20elements%20and%20translucent%20layers%20creating%20depth.%20The%20left%20side%20is%20intentionally%20minimal%20and%20lighter%20for%20text%20overlay%2C%20while%20the%20right%20side%20has%20more%20complex%20abstract%20patterns.%20The%20overall%20style%20is%20sophisticated%20and%20tech-forward%20with%20a%20clean%2C%20professional%20aesthetic.&width=1200&height=600&seq=pricing-hero-abstract&orientation=landscape');
+background-size: cover;
+background-position: center right;
+}
+</style>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3AD6A4',secondary:'#1C1C1E'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+</head>
+<body class="bg-white text-secondary">
+<!-- Navigation -->
+<header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+<div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<a href="#" class="font-['Pacifico'] text-2xl text-primary">logo</a>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center space-x-8">
+<a href="#" class="text-secondary hover:text-primary transition-colors">Product</a>
+<a href="#" class="text-secondary hover:text-primary transition-colors">Use Cases</a>
+<a href="#" class="text-secondary hover:text-primary transition-colors">Contact</a>
+<a href="#" class="text-secondary hover:text-primary transition-colors">About</a>
+<a href="#" class="text-primary font-medium">Pricing</a>
+</nav>
+<a href="#" class="hidden md:block bg-primary text-white px-5 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Get Started</a>
+<!-- Mobile Menu Button -->
+<button id="mobile-menu-button" class="md:hidden w-10 h-10 flex items-center justify-center text-secondary">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+<!-- Mobile Navigation -->
+<div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+<div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+<a href="#" class="text-secondary hover:text-primary transition-colors py-2">Product</a>
+<a href="#" class="text-secondary hover:text-primary transition-colors py-2">Use Cases</a>
+<a href="#" class="text-secondary hover:text-primary transition-colors py-2">Contact</a>
+<a href="#" class="text-secondary hover:text-primary transition-colors py-2">About</a>
+<a href="#" class="text-primary font-medium py-2">Pricing</a>
+<a href="#" class="bg-primary text-white px-5 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors text-center whitespace-nowrap">Get Started</a>
+</div>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="hero-bg w-full py-24">
+<div class="container mx-auto px-4">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl font-bold text-secondary mb-4">Simple, Transparent Pricing</h1>
+<p class="text-lg md:text-xl text-gray-600 mb-8">Start free, build at your pace, and scale when ready — your data, your AI, your control.</p>
+</div>
+</div>
+</section>
+<!-- Billing Toggle -->
+<section class="py-12 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="flex flex-col items-center justify-center mb-16">
+<div class="flex items-center justify-center space-x-4 bg-white rounded-full px-2 py-1 shadow-sm border border-gray-100 mb-4">
+<button id="monthly-toggle" class="px-6 py-2 !rounded-full bg-primary text-white font-medium whitespace-nowrap">Monthly</button>
+<button id="annual-toggle" class="px-6 py-2 !rounded-full text-gray-600 font-medium whitespace-nowrap">Annual</button>
+</div>
+<p class="text-sm text-gray-500">Save 16.7% with annual billing</p>
+</div>
+<!-- Pricing Cards -->
+<div id="pricing" class="grid md:grid-cols-3 gap-8 w-full max-w-7xl mx-auto">
+<!-- Monthly Plan -->
+<div id="monthly-plan" class="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-primary flex flex-col transform scale-105">
+<div class="bg-primary text-white text-center py-2 text-sm font-medium">
+MOST POPULAR
+</div>
+<div class="p-6 border-b border-gray-100">
+<h3 class="text-xl font-semibold mb-2">Individual</h3>
+<div class="flex items-end mb-4">
+<span class="text-4xl font-bold">$24</span>
+<span class="text-gray-500 ml-1">/month</span>
+</div>
+<p class="text-gray-600">Perfect for personal use and exploring your AI twin.</p>
+</div>
+<div class="p-6 flex-grow">
+<ul class="space-y-4">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>1 AI Knowledge Twin</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Personal data cloud storage</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Monthly billing</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Cancel anytime</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Free 30-day trial</span>
+</li>
+</ul>
+</div>
+<div class="p-6">
+<a href="#" class="block w-full bg-primary text-white text-center px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Start Free Trial</a>
+</div>
+</div>
+<!-- Annual Plan -->
+<div id="annual-plan" class="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-primary flex flex-col transform scale-105 hidden">
+<div class="bg-primary text-white text-center py-2 text-sm font-medium">
+MOST POPULAR
+</div>
+<div class="p-6 border-b border-gray-100">
+<h3 class="text-xl font-semibold mb-2">Individual Annual</h3>
+<div class="flex items-end mb-4">
+<span class="text-4xl font-bold">$240</span>
+<span class="text-gray-500 ml-1">/year</span>
+</div>
+<p class="text-gray-600">Save 16.7% compared to monthly billing.</p>
+</div>
+<div class="p-6 flex-grow">
+<ul class="space-y-4">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>1 AI Knowledge Twin</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Personal data cloud storage</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>12-month subscription</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Priority support</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Free 30-day trial</span>
+</li>
+</ul>
+</div>
+<div class="p-6">
+<a href="#" class="block w-full bg-primary text-white text-center px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Start Free Trial</a>
+</div>
+</div>
+<!-- Enterprise Plan -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 flex flex-col min-h-[600px]">
+<div class="p-6 border-b border-gray-100">
+<h3 class="text-xl font-semibold mb-2">Enterprise</h3>
+<div class="flex items-end mb-4">
+<span class="text-4xl font-bold">Custom</span>
+</div>
+<p class="text-gray-600">Tailored solutions for organizations of any size.</p>
+</div>
+<div class="p-6 flex-grow">
+<ul class="space-y-4">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Multiple AI Knowledge Twins</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Advanced data integration</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Dedicated account manager</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Custom implementation</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>SLA and premium support</span>
+</li>
+</ul>
+</div>
+<div class="p-6">
+<a href="#" class="block w-full bg-white border border-primary text-primary text-center px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">Contact Sales</a>
+</div>
+</div>
+<!-- Concierge Setup -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 flex flex-col">
+<div class="p-6 border-b border-gray-100">
+<h3 class="text-xl font-semibold mb-2">Concierge Setup</h3>
+<div class="flex items-end mb-4">
+<span class="text-4xl font-bold">$300</span>
+<span class="text-gray-500 ml-1">one-time</span>
+</div>
+<p class="text-gray-600">Let our team handle your AI Twin setup.</p>
+</div>
+<div class="p-6 flex-grow">
+<ul class="space-y-4">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Dedicated setup specialist</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>60-minute consultation</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Custom configuration</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Data import assistance</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>2 weeks follow-up support</span>
+</li>
+</ul>
+</div>
+<div class="p-6">
+<a href="#" class="block w-full bg-white border border-primary text-primary text-center px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">Join Waitlist</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Included -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-center mb-4">Included With All Plans</h2>
+<p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Every subscription includes these core features to ensure you get the most out of your personal AI experience.</p>
+<div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+<div class="flex flex-col items-center text-center p-6">
+<div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mb-4">
+<i class="ri-lock-line ri-xl"></i>
+</div>
+<h3 class="text-lg font-semibold mb-2">Your Data, Your Control</h3>
+<p class="text-gray-600">Full ownership of your personal data with transparent privacy controls.</p>
+</div>
+<div class="flex flex-col items-center text-center p-6">
+<div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mb-4">
+<i class="ri-robot-line ri-xl"></i>
+</div>
+<h3 class="text-lg font-semibold mb-2">AI Knowledge Twin</h3>
+<p class="text-gray-600">Personalized AI that learns from your data and adapts to your preferences.</p>
+</div>
+<div class="flex flex-col items-center text-center p-6">
+<div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mb-4">
+<i class="ri-cloud-line ri-xl"></i>
+</div>
+<h3 class="text-lg font-semibold mb-2">Personal Data Cloud</h3>
+<p class="text-gray-600">Secure storage for all your personal information and AI training data.</p>
+</div>
+<div class="flex flex-col items-center text-center p-6">
+<div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mb-4">
+<i class="ri-shield-check-line ri-xl"></i>
+</div>
+<h3 class="text-lg font-semibold mb-2">No Tracking, No Sharing</h3>
+<p class="text-gray-600">We never track your activity or share your data with third parties.</p>
+</div>
+<div class="flex flex-col items-center text-center p-6">
+<div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mb-4">
+<i class="ri-code-line ri-xl"></i>
+</div>
+<h3 class="text-lg font-semibold mb-2">Developer Integrations</h3>
+<p class="text-gray-600">API access and developer tools to extend your AI capabilities.</p>
+</div>
+<div class="flex flex-col items-center text-center p-6">
+<div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mb-4">
+<i class="ri-refresh-line ri-xl"></i>
+</div>
+<h3 class="text-lg font-semibold mb-2">Cancel Anytime</h3>
+<p class="text-gray-600">Flexible subscription with no long-term commitments required.</p>
+</div>
+<!-- Concierge Setup -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 flex flex-col">
+<div class="p-6 border-b border-gray-100">
+<h3 class="text-xl font-semibold mb-2">Concierge Setup</h3>
+<div class="flex items-end mb-4">
+<span class="text-4xl font-bold">$300</span>
+<span class="text-gray-500 ml-1">one-time</span>
+</div>
+<p class="text-gray-600">Let our team handle your AI Twin setup.</p>
+</div>
+<div class="p-6 flex-grow">
+<ul class="space-y-4">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Dedicated setup specialist</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>60-minute consultation</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Custom configuration</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Data import assistance</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>2 weeks follow-up support</span>
+</li>
+</ul>
+</div>
+<div class="p-6">
+<a href="#" class="block w-full bg-white border border-primary text-primary text-center px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">Join Waitlist</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+<div class="max-w-3xl mx-auto divide-y divide-gray-200">
+<div class="py-6">
+<button class="faq-toggle flex justify-between items-center w-full text-left" data-target="faq-1">
+<span class="text-lg font-medium">What happens after the 30-day trial?</span>
+<div class="w-6 h-6 flex items-center justify-center text-gray-500">
+<i class="ri-add-line ri-lg faq-icon-plus"></i>
+<i class="ri-subtract-line ri-lg faq-icon-minus hidden"></i>
+</div>
+</button>
+<div id="faq-1" class="mt-3 hidden">
+<p class="text-gray-600">After your 30-day trial ends, you can choose to subscribe to one of our plans to continue using the service. If you decide not to subscribe, you can export your data and your account will be deactivated. There are no automatic charges - we'll notify you before your trial ends.</p>
+</div>
+</div>
+<div class="py-6">
+<button class="faq-toggle flex justify-between items-center w-full text-left" data-target="faq-2">
+<span class="text-lg font-medium">Can I switch plans later?</span>
+<div class="w-6 h-6 flex items-center justify-center text-gray-500">
+<i class="ri-add-line ri-lg faq-icon-plus"></i>
+<i class="ri-subtract-line ri-lg faq-icon-minus hidden"></i>
+</div>
+</button>
+<div id="faq-2" class="mt-3 hidden">
+<p class="text-gray-600">Yes, you can switch between monthly and annual plans at any time. When upgrading, you'll receive credit for the unused portion of your current subscription. When downgrading, the new plan will take effect at the end of your current billing period.</p>
+</div>
+</div>
+<div class="py-6">
+<button class="faq-toggle flex justify-between items-center w-full text-left" data-target="faq-3">
+<span class="text-lg font-medium">Is my data shared with third parties?</span>
+<div class="w-6 h-6 flex items-center justify-center text-gray-500">
+<i class="ri-add-line ri-lg faq-icon-plus"></i>
+<i class="ri-subtract-line ri-lg faq-icon-minus hidden"></i>
+</div>
+</button>
+<div id="faq-3" class="mt-3 hidden">
+<p class="text-gray-600">No, your data is private and stays in your personal cloud. We do not share, sell, or analyze your data for advertising purposes. You have complete control over your information and can delete it at any time.</p>
+</div>
+</div>
+<div class="py-6">
+<button class="faq-toggle flex justify-between items-center w-full text-left" data-target="faq-4">
+<span class="text-lg font-medium">What's included in the Concierge Setup?</span>
+<div class="w-6 h-6 flex items-center justify-center text-gray-500">
+<i class="ri-add-line ri-lg faq-icon-plus"></i>
+<i class="ri-subtract-line ri-lg faq-icon-minus hidden"></i>
+</div>
+</button>
+<div id="faq-4" class="mt-3 hidden">
+<p class="text-gray-600">Our Concierge Setup service includes a dedicated specialist who will help you configure your AI Twin. They'll guide you through data import, customize your settings, and optimize your AI for your specific needs. The service includes a 60-minute consultation and follow-up support for two weeks.</p>
+</div>
+</div>
+<div class="py-6">
+<button class="faq-toggle flex justify-between items-center w-full text-left" data-target="faq-5">
+<span class="text-lg font-medium">Can I use Prifina for my business?</span>
+<div class="w-6 h-6 flex items-center justify-center text-gray-500">
+<i class="ri-add-line ri-lg faq-icon-plus"></i>
+<i class="ri-subtract-line ri-lg faq-icon-minus hidden"></i>
+</div>
+</button>
+<div id="faq-5" class="mt-3 hidden">
+<p class="text-gray-600">Absolutely! Our Enterprise plan is designed for businesses of all sizes. We offer custom solutions for teams, including multi-user management, advanced integrations, and dedicated support. Contact our sales team to discuss your specific requirements.</p>
+</div>
+</div>
+<!-- Concierge Setup -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 flex flex-col">
+<div class="p-6 border-b border-gray-100">
+<h3 class="text-xl font-semibold mb-2">Concierge Setup</h3>
+<div class="flex items-end mb-4">
+<span class="text-4xl font-bold">$300</span>
+<span class="text-gray-500 ml-1">one-time</span>
+</div>
+<p class="text-gray-600">Let our team handle your AI Twin setup.</p>
+</div>
+<div class="p-6 flex-grow">
+<ul class="space-y-4">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Dedicated setup specialist</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>60-minute consultation</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Custom configuration</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>Data import assistance</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span>2 weeks follow-up support</span>
+</li>
+</ul>
+</div>
+<div class="p-6">
+<a href="#" class="block w-full bg-white border border-primary text-primary text-center px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">Join Waitlist</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-20 bg-gray-50">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Build your private AI — in minutes.</h2>
+<p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Start free and experience what it's like to own your own AI.</p>
+<a href="#" class="inline-block bg-primary text-white px-8 py-4 !rounded-button font-medium hover:bg-opacity-90 transition-colors text-lg whitespace-nowrap">Get Started Free →</a>
+<p class="mt-4 text-gray-500">No credit card required for trial</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="grid md:grid-cols-4 gap-8">
+<div>
+<a href="#" class="font-['Pacifico'] text-2xl text-primary mb-4 inline-block">logo</a>
+<p class="text-gray-400 mb-4">Your data, your AI, your control.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+<i class="ri-twitter-x-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+<i class="ri-linkedin-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+<i class="ri-github-line"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="font-semibold text-lg mb-4">Product</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Security</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Enterprise</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Roadmap</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-lg mb-4">Resources</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Guides</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">API Reference</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Community</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-lg mb-4">Company</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 mb-4 md:mb-0">© 2025 Prifina. All rights reserved.</p>
+<div class="flex items-center space-x-4">
+<div class="flex items-center text-gray-400">
+<i class="ri-visa-line ri-lg mr-2"></i>
+<i class="ri-mastercard-line ri-lg mr-2"></i>
+<i class="ri-paypal-line ri-lg mr-2"></i>
+<i class="ri-apple-line ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+if (mobileMenu.classList.contains('hidden')) {
+mobileMenu.classList.remove('hidden');
+mobileMenuButton.innerHTML = '<i class="ri-close-line ri-lg"></i>';
+} else {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+}
+});
+});
+</script>
+<script id="billing-toggle-script">
+document.addEventListener('DOMContentLoaded', function() {
+const monthlyToggle = document.getElementById('monthly-toggle');
+const annualToggle = document.getElementById('annual-toggle');
+const monthlyPlan = document.getElementById('monthly-plan');
+const annualPlan = document.getElementById('annual-plan');
+monthlyToggle.addEventListener('click', function() {
+monthlyToggle.classList.add('bg-primary', 'text-white');
+monthlyToggle.classList.remove('text-gray-600');
+annualToggle.classList.remove('bg-primary', 'text-white');
+annualToggle.classList.add('text-gray-600');
+monthlyPlan.classList.remove('hidden');
+annualPlan.classList.add('hidden');
+});
+annualToggle.addEventListener('click', function() {
+annualToggle.classList.add('bg-primary', 'text-white');
+annualToggle.classList.remove('text-gray-600');
+monthlyToggle.classList.remove('bg-primary', 'text-white');
+monthlyToggle.classList.add('text-gray-600');
+annualPlan.classList.remove('hidden');
+monthlyPlan.classList.add('hidden');
+});
+});
+</script>
+<script id="faq-toggle-script">
+document.addEventListener('DOMContentLoaded', function() {
+const faqToggles = document.querySelectorAll('.faq-toggle');
+faqToggles.forEach(toggle => {
+toggle.addEventListener('click', function() {
+const targetId = this.getAttribute('data-target');
+const targetContent = document.getElementById(targetId);
+const plusIcon = this.querySelector('.faq-icon-plus');
+const minusIcon = this.querySelector('.faq-icon-minus');
+if (targetContent.classList.contains('hidden')) {
+targetContent.classList.remove('hidden');
+plusIcon.classList.add('hidden');
+minusIcon.classList.remove('hidden');
+} else {
+targetContent.classList.add('hidden');
+plusIcon.classList.remove('hidden');
+minusIcon.classList.add('hidden');
+}
+});
+});
+});
+</script>
+</body>
+</html>
